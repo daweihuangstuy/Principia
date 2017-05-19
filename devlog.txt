@@ -23,3 +23,9 @@ Chester, Dawei :: Finalized proposal
 2017-05-18
 --------------------------------------------------------------
 Chester, Dawei :: First draft of plan
+
+
+2017-05-19
+--------------------------------------------------------------
+Chester :: Worked on class Vector
+  Dawei :: Worked on user interface
