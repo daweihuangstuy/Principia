@@ -1,0 +1,25 @@
+Prioritization:
+	Have a working product with basic interface and simplest possible user interaction.
+
+Core Functionality:
+	Working user interface with navigation, input, and output.
+
+Non-essential:
+	Animations.
+
+Prerequisites:
+	Create necessary classes for vectors, units, constants, enums.
+	Low complexity concepts before high complexity: motion > forces > energy > ...
+
+Delegated Tasks:
+	-
+
+Collaborative Work:
+	-
+
+Timeline:
+	2017-05-20 MVP
+	.
+	.
+	.
+	2017-06-06 Project Due
