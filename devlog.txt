@@ -29,3 +29,7 @@ Chester, Dawei :: First draft of plan
 --------------------------------------------------------------
 Chester :: Worked on class Vector
   Dawei :: Worked on user interface
+
+2017-05-20
+--------------------------------------------------------------
+Chester :: Worked on classes Vector, Scalar, Unit

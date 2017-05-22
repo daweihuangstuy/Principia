@@ -1,0 +1,34 @@
+Prioritization:
+	Have a working product with basic interface and simplest possible user interaction.
+        Start with groundwork: defining Vectors, Units, Scalars
+        Creating basic interface.
+        Work on implementing methods for solving problems.
+        Decide on what topics to cover.
+                        
+Core Functionality:
+	Working user interface with navigation, input, and output.
+        Tree management of topics.
+        Searchable catalog of topics.
+        Implement topics.
+                
+Non-essential:
+	Animations.
+
+Prerequisites:
+	Create necessary classes for vectors, units, constants, enums.
+	Low complexity concepts before high complexity: motion > forces > energy > ...
+
+Delegated Tasks:
+	Chester :: class Vector, Scalar, Unit
+        Dawei :: user interface, driver files
+
+Collaborative Work:
+	Animations.
+        Expanding on topics after groundwork is set.
+
+Timeline:
+	2017-05-21 MVP
+	2017-05-22 Motion, Forces, Energy
+	.
+	.
+	2017-06-06 Project Due
