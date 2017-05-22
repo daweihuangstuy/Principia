@@ -1,4 +1,5 @@
 public class Vector{
+    
     // vector components
     private double X;
     private double Y;
@@ -8,12 +9,25 @@ public class Vector{
     private double magnitude;
     private double thetaXY;
     private double thetaYZ;
+    private double thetaZX;
 
     private Unit unit;
 
     // default constructor
     public Vector(){
         
+    }
+
+    // overloaded constructor
+    public Vector(double xx, double yy, double zz, Unit u) {
+        X = xx;
+        Y = yy;
+        Z = zz;
+        magnitude = calcMag();
+        thetaXY = calcXY();
+        thetaYZ = calcYZ();
+        thetaZX = calcZX();
+        unit = u;
     }
 
     // accessors
@@ -34,6 +48,9 @@ public class Vector{
     }
     public double getThetaYZ(){
         return thetaYZ;
+    }
+    public double getThetaZX(){
+        return thetaZX;
     }
     public Unit getUnit(){
         return unit;
@@ -70,6 +87,11 @@ public class Vector{
         thetaYZ = newThetaYZ;
         return thetaYZ;
     }
+    public double setThetaZX(double newThetaZX){
+        double oldThetaZX = thetaZX;
+        thetaZX = newThetaZX;
+        return thetaZX;
+    }
     public Unit setUnit(Unit newUnit){
         Unit oldUnit = unit;
         unit = newUnit;
@@ -85,11 +107,44 @@ public class Vector{
         return magXYZ;  
     }
 
-    public Vector cross(Vector u, Vector v) {
-        return u;
+    // calculate angle between XY axes, relative to X
+    public double calcXY(){
+        // quadrant 1 or 4 angle
+        if (X > 0) {
+            return Math.atan(Y/X);
+        }
+        // quadrant 2 or 3 angle
+        else {
+            return Math.atan(Y/X) + Math.PI;
+        }
     }
 
-    public double dotProduct(Vector u, Vector v) {
-        return 0;
+    // calculate angle between YZ axes, relative to Y
+    public double calcYZ(){
+        // quadrant 1 or 4 angle
+        if (Y > 0) {
+            return Math.atan(Z/Y);
+        }
+        // quadrant 2 or 3 angle
+        else {
+            return Math.atan(Z/Y) + Math.PI;
+        }    
     }
+
+    // calculate angle between ZX axes, relative to Z
+    public double calcZX(){
+            // quadrant 1 or 4 angle
+        if (Z > 0) {
+            return Math.atan(X/Z);
+        }
+        // quadrant 2 or 3 angle
+        else {
+            return Math.atan(X/Z) + Math.PI;
+        }     
+    }
+
+    public String toString(){
+        return getMag() + " " +  getUnit();
+    }
+    
 }

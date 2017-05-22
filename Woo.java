@@ -8,9 +8,6 @@ import cs1.Keyboard;
 
 public class Woo{
 
-    String[] Categories = {"M1 Displacement Given Initial Velocity and Acceleration"};
-    String[] CategoryCode = {"M1"};
-
     public static void main(String[] args){
 
 	// start setup
@@ -22,10 +19,14 @@ public class Woo{
 	}
 
 	//pick category
-	System.out.println("Please pick a category");
-	String pickCMD = cs1.Keyboard.readString();
-	while(
-	}
-	
+	System.out.println("Please pick a topic using the 2 character index");
+
+        Catalog.printTopics();
+
+        String pickCMD = cs1.Keyboard.readString();
+
+        if (pickCMD.equals("M1")) {
+            
+        }
     }
 }
