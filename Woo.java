@@ -26,7 +26,16 @@ public class Woo{
         String pickCMD = cs1.Keyboard.readString();
 
         if (pickCMD.equals("M1")) {
-            
+            System.out.println(Solver.M1());
         }
+        
+        /*
+        int[] testArr = new int[7];
+        testArr[0] = 1;
+        Unit testUnit = new Unit(testArr);
+        Vector test1 = new Vector(3, 4, 0, testUnit);
+        System.out.println(test1);
+        System.out.println(Physics.dotProduct(test1, test1));
+        */
     }
 }
