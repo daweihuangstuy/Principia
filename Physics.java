@@ -1,5 +1,3 @@
-import java.util.*;
-
 public final class Physics{
 
     // uninstantiable because this is a static class
@@ -26,19 +24,32 @@ public final class Physics{
         return new Vector(newX, newY, newZ, newUnit);
     }
 
+    public static Vector scaleMag(Vector u, Scalar k){
+        double newMag = u.getMag() * k.getMag();
+        Unit newUnit = resolveUnitsSI(u.getUnit(), k.getUnit());
+        return new Vector(newMag, newUnit);
+    }
+    
     // calculate product of variable number of units
     public static Unit resolveUnitsSI(Unit... argsSI){
-        ArrayList<Integer> newSI = new ArrayList<Integer>(7);
+        int[] newSI = new int[7];
 
         // loop through all arguments
         for (Unit u: argsSI) {
             // add value at index of argument to value at index of output
-            for (int i = 0; i < u.getSI().size(); i++){
-                newSI.set(i, newSI.get(i) + u.getSI().get(i));
+            for (int i = 0; i < u.getSI().length; i++){
+                newSI[i] += u.getSI()[i];
             }
         }
 
         return new Unit(newSI);
+    }
+
+    public static Scalar reciprocal(Scalar s){
+        double newMag = 1 / s.getMag();
+        Unit newUnit = s.getUnit().reciprocal();
+        Scalar newScalar = new Scalar(newMag, newUnit);
+        return newScalar;
     }
     
 }
