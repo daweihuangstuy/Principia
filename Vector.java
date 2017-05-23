@@ -18,7 +18,7 @@ public class Vector{
         
     }
 
-    // overloaded constructor
+    // overloaded constructors
     public Vector(double xx, double yy, double zz, Unit u) {
         X = xx;
         Y = yy;
@@ -27,6 +27,10 @@ public class Vector{
         thetaXY = calcXY();
         thetaYZ = calcYZ();
         thetaZX = calcZX();
+        unit = u;
+    }
+    public Vector(double mag, Unit u){
+        magnitude = mag;
         unit = u;
     }
 

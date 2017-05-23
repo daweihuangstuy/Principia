@@ -33,7 +33,7 @@ public class Scalar{
         unit = newUnit;
         return oldUnit;
     }
-
+    
     public String toString(){
         return getMag() + " " + getUnit();
     }
