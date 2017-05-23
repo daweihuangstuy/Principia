@@ -33,3 +33,9 @@ Chester :: Worked on class Vector
 2017-05-20
 --------------------------------------------------------------
 Chester :: Worked on classes Vector, Scalar, Unit
+
+
+2017-05-22
+--------------------------------------------------------------
+Chester :: Added reciprocal operation and new constructors
+  Dawei :: Devised plan for handling units
