@@ -39,3 +39,8 @@ Chester :: Worked on classes Vector, Scalar, Unit
 --------------------------------------------------------------
 Chester :: Added reciprocal operation and new constructors
   Dawei :: Devised plan for handling units
+
+
+2017-05-23
+--------------------------------------------------------------
+Chester, Dawei :: Created flow chart and UML diagrams; class TopicNode
