@@ -6,9 +6,8 @@ public final class Catalog{
      "M3",
      "etc"};
 
-    public static void printTopics() {
-        for (String s : listTopics) {
-            System.out.println(s);
-        }
-    }
+    public Tree<String> treeTopics = new Tree<String>("root", 
+
+    
+
 }
