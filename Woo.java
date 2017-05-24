@@ -28,6 +28,12 @@ public class Woo{
         if (pickCMD.equals("M1")) {
             System.out.println(Solver.M1());
         }
+
+	if (pickCMD.equals("motion")) {
+            Motion.main(null);
+        }
+	
+	
         
         /*
         int[] testArr = new int[7];
