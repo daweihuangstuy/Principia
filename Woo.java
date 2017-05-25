@@ -21,19 +21,9 @@ public class Woo{
 	//pick category
 	System.out.println("Please pick a topic using the 2 character index");
 
-        Catalog.printTopics();
+        Catalog treeTopics = new Catalog();
+	System.out.println(treeTopics);
 
-        String pickCMD = cs1.Keyboard.readString();
-
-        if (pickCMD.equals("M1")) {
-            System.out.println(Solver.M1());
-        }
-
-	if (pickCMD.equals("motion")) {
-            Motion.main(null);
-        }
-	
-	
         
         /*
         int[] testArr = new int[7];

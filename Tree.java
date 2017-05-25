@@ -16,6 +16,10 @@ public class Tree<T> {
     public ArrayList<Node<T>> getChildren(){
 	return root.children;
     }
+
+    public Node<T> getChild(int index){
+	return root.children.get(index);
+    }
     
     public static class Node<T> {
         private T data;
@@ -27,6 +31,10 @@ public class Tree<T> {
 
 	public Node(T newData){
 	    data = newData;
+	}
+
+	public String toString(){
+	    return "" + data;
 	}
     }
 }
