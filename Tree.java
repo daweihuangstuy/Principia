@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Tree<T> {
     private Node<T> root;
 
@@ -7,9 +9,32 @@ public class Tree<T> {
         root.children = new ArrayList<Node<T>>();
     }
 
+    public void addChild(String data){
+	root.children.add(new Node(data));
+    }
+
+    public ArrayList<Node<T>> getChildren(){
+	return root.children;
+    }
+
+    public Node<T> getChild(int index){
+	return root.children.get(index);
+    }
+    
     public static class Node<T> {
         private T data;
         private Node<T> parent;
-        private List<Node<T>> children;
+        private ArrayList<Node<T>> children;
+
+	public Node(){
+	}
+
+	public Node(T newData){
+	    data = newData;
+	}
+
+	public String toString(){
+	    return "" + data;
+	}
     }
 }
