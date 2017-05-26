@@ -24,7 +24,16 @@ public class Woo{
         Catalog treeTopics = new Catalog();
 	System.out.println(treeTopics);
 
-        
+	String pickCMD = cs1.Keyboard.readString();
+        if (pickCMD.equals("M1")) {
+            System.out.println(Solver.M1());
+        }
+	
+
+	if (pickCMD.equals("motion")) {
+	  Motion.main(null);
+        }
+
         /*
         int[] testArr = new int[7];
         testArr[0] = 1;

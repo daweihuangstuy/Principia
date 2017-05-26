@@ -45,7 +45,7 @@ public class Motion{
 		System.out.println("\nInput Time_Acceleration_InitVelocity in that order");
 		input = cs1.Keyboard.readString();
 		String[]  = input.split("\\s+");
-		System.out.println(unDisp1(
+		System.out.println(
 		
 		 
 				  
