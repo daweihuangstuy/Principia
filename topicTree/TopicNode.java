@@ -10,6 +10,7 @@ public class TopicNode {
 
     public TopicNode(String newData) {
         data = newData;
+        children = new ArrayList<TopicNode>();
     }
 
     public String toString() {
@@ -40,5 +41,9 @@ public class TopicNode {
         ArrayList<TopicNode> oldChildren = children;
         children = newChildren;
         return oldChildren;
+    }
+
+    public void addChild(TopicNode child) {
+        children.add(child);
     }
 }
