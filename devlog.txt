@@ -44,3 +44,26 @@ Chester :: Added reciprocal operation and new constructors
 2017-05-23
 --------------------------------------------------------------
 Chester, Dawei :: Created flow chart and UML diagrams; class TopicNode
+
+
+2017-05-24
+--------------------------------------------------------------
+Chester :: Implemented TopicTree
+  Dawei :: Worked on user interface
+
+
+2017-05-25
+--------------------------------------------------------------
+Chester :: Added topics to cover
+  Dawei :: Worked on class Motion
+
+
+2017-05-26
+--------------------------------------------------------------
+Chester :: Implemented equations
+  Dawei :: Started Processing interface
+
+
+2017-05-29
+--------------------------------------------------------------
+Chester :: Added to TopicTree; cleaned up code
