@@ -1,16 +1,12 @@
-public final class Physics{
+public static class Calculate {
 
     // uninstantiable because this is a static class
-    private Physics(){
+    private Calculate(){
     }
 
     // calculate dot product of two vectors
     public static double dotProduct(Vector u, Vector v){
         return u.getX()*v.getX() + u.getY()*v.getY() + u.getZ()*v.getZ();
-    }
-
-    public static double crossProduct(Scalar a, Scalar b){
-	return 
     }
 
     // calculate angle in between two vectors
