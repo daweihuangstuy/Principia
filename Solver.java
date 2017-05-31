@@ -1,12 +1,13 @@
 import java.lang.reflect.*;
+import cs1.Keyboard;
 
 public final class Solver {
 
-    public static String solveUnknown(Double[] inputs, String typeProblem) {
+    public static String solve(String methodCode) {
         Object o = new Object();
         try {
-            Method m = Solver.class.getDeclaredMethod(typeProblem, Double[].class);
-            o = m.invoke(null, (Object)inputs);              
+            Method m = Solver.class.getMethod("m" + methodCode);
+            o = m.invoke(null);              
         }
         catch (NoSuchMethodException x) {
         }
@@ -17,98 +18,40 @@ public final class Solver {
         return "" + o;
     }
 
-    // d = xf - xi
-    public static String M00(Double[] input) {
-        if (input[0] == null) {
-            return input[1] - input[2] + " m";
-        }
-        else if (input[1] == null) {
-            return input[0] + input[2] + " m";
-        }
-        else {
-            return input[1] - input[0] + " m";
-        }
-    }
+    public static String m00() {
+        System.out.println("\033c");
+        System.out.println("Solving for displacement...\n");
+        System.out.println("0 As a function of velocity and time");
+        System.out.println("1 As a function of velocity, time, and acceleration\n");
 
-    // vav = d / dt
-    public static String M01(Double[] input) {
-        if (input[0] == null) {
-            return input[1] / input[2] + " m/s";
+        int category = Keyboard.readInt();
+        while (category != 0 && category != 1) {
+            System.out.println("\033c");
+            System.out.println("Input error, please try again\n");
+            System.out.println("Solving for displacement...\n");
+            System.out.println("0 As a function of velocity and time");
+            System.out.println("1 As a function of velocity, time, and acceleration\n");
+            category = Keyboard.readInt();
         }
-        else if (input[1] == null) {
-            return input[0] * input[2] + " m";
-        }
-        else {
-            return input[1] / input[0] + " s";
-        }
-    }
 
-    // aav = dv / dt
-    public static String M02(Double[] input) {
-        if (input[0] == null) {
-            return input[1] / input[2] + " m/s^2";
-        }
-        else if (input[1] == null) {
-            return input[0] * input[2] + " m/s";
-        }
-        else {
-            return input[1] / input[0] + " s";
-        }
-    }
-
-    // vf = vi + (a)(t)
-    public static String M03(Double[] input) {
-        if (input[0] == null) {
-            return input[1] + input[2] * input[3] + " m/s";
-        }
-        else if (input[1] == null) {
-            return input[0] - input[2] * input[3] + " m/s";
-        }
-        else if (input[2] == null) {
-            return (input[0] - input[1]) / input[3] + " m/s^2";
+        if (category == 0) {
+            System.out.print("velocity in m/s = ");
+            Double v = Keyboard.readDouble();
+            System.out.print("time in s = ");
+            Double t = Keyboard.readDouble();
+            System.out.println();
+            return "displacement = " + v*t + " m";
         }
         else {
-            return (input[0] - input[1]) / input[2] + " s";
-        }
-    }
-
-    // vav = (1/2)(vi + vf)
-    public static String M04(Double[] input) {
-        if (input[0] == null) {
-            return 1/2 * (input[1] + input[2]) + " m/s";
-        }
-        else if (input[1] == null) {
-            return 2 * input[0] - input[2] + " m/s";
-        }
-        else {
-            return 2 * input[0] - input[1] + " m/s";
-        }
-    }
-
-    // xf = xi + (1/2)(vi + vf)(t)
-    public static String M05(Double[] input) {
-        if (input[0] == null) {
-            return input[1] + 1/2 * (input[2] + input[3]) * input[4] + " m";
-        }
-        else if (input[1] == null) {
-            return input[0] - 1/2 * (input[2] + input[3]) * input[4] + " m";
-        }
-        else if (input[2] == null) {
-            return (input[0] - input[1]) * 2 / input[4] - input[3] + " m/s";
-        }
-        else if (input[3] == null) {
-            return (input[0] - input[1]) * 2 / input[4] - input[2] + " m/s";
-        }
-        else {
-            return (input[0] - input[1]) * 2 / (input[2] + input[3]) + " m/s";
+            System.out.print("velocity in m/s = ");
+            Double v = Keyboard.readDouble();
+            System.out.print("time in s = ");
+            Double t = Keyboard.readDouble();
+            System.out.print("acceleration in m/s^2 = ");
+            Double a = Keyboard.readDouble();
+            System.out.println();
+            return "displacement = " + (v*t + 1.0/2*a*t*t) + " m";
         }
     }
     
-
-    public static void main(String[] args) {
-        Double[] d = {1.0, null, 2.0};
-        System.out.println(solveUnknown(d, "M1"));
-    }
-
-
 }
