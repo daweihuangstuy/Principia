@@ -20,38 +20,39 @@ public final class Solver {
 
     public static String m00() {
         System.out.println("\033c");
-        System.out.println("Solving for displacement...\n");
-        System.out.println("0 As a function of velocity and time");
-        System.out.println("1 As a function of velocity, time, and acceleration\n");
-
-        int category = Keyboard.readInt();
-        while (category != 0 && category != 1) {
-            System.out.println("\033c");
-            System.out.println("Input error, please try again\n");
-            System.out.println("Solving for displacement...\n");
-            System.out.println("0 As a function of velocity and time");
-            System.out.println("1 As a function of velocity, time, and acceleration\n");
-            category = Keyboard.readInt();
-        }
+	String message = "Solving for displacement...\n\n0 As a function of velocity and time\n1 As a function of velocity, time, and acceleration\n";
+	int category = selectCategory(message, 1);
 
         if (category == 0) {
-            System.out.print("velocity in m/s = ");
-            Double v = Keyboard.readDouble();
-            System.out.print("time in s = ");
-            Double t = Keyboard.readDouble();
-            System.out.println();
-            return "displacement = " + v*t + " m";
+	    Double v = getInput("velocity in m/s = ");
+	    Double t = getInput("time in s = ");
+            return "\ndisplacement = " + v*t + " m";
         }
         else {
-            System.out.print("velocity in m/s = ");
-            Double v = Keyboard.readDouble();
-            System.out.print("time in s = ");
-            Double t = Keyboard.readDouble();
-            System.out.print("acceleration in m/s^2 = ");
-            Double a = Keyboard.readDouble();
-            System.out.println();
-            return "displacement = " + (v*t + 1.0/2*a*t*t) + " m";
+	    Double v = getInput("velocity in m/s = ");
+	    Double t = getInput("time in s = ");
+	    Double a = getInput("acceleration in m/s^2 = ");
+            return "\ndisplacement = " + (v*t + 1.0/2*a*t*t) + " m";
         }
     }
     
+    public static int selectCategory(String message, int maxChoice) {
+	System.out.println(message);
+	int category = Keyboard.readInt();
+	while (category == Integer.MIN_VALUE ||
+	       category < 0 || category > maxChoice) {
+	    System.out.println("Error reading data, please retry.");
+            category = Keyboard.readInt();
+	}
+	return category;
+    }
+
+    public static Double getInput(String message) {
+	Double d = null;
+	while (d == null || d.equals(Double.NaN)) {
+	    System.out.print(message);
+	    d = Keyboard.readDouble();
+	}
+	return d;
+    }
 }

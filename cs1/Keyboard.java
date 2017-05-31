@@ -251,7 +251,7 @@ public class Keyboard
       } 
       catch (Exception exception) 
       {
-         error ("Error reading int data, MIN_VALUE value returned.");
+	  //error ("Error reading data, please retry.");
          value = Integer.MIN_VALUE;
       }
       return value;
@@ -270,7 +270,7 @@ public class Keyboard
       } 
       catch (Exception exception) 
       {
-         error ("Error reading long data, MIN_VALUE value returned.");
+	  error ("Error reading long data, MIN_VALUE value returned.");
          value = Long.MIN_VALUE;
       }
       return value;
@@ -308,7 +308,7 @@ public class Keyboard
       } 
       catch (Exception exception) 
       {
-         error ("Error reading double data, NaN value returned.");
+         error ("Error reading data, please retry.");
          value = Double.NaN;
       }
       return value;

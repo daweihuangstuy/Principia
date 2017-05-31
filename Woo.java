@@ -44,7 +44,7 @@ public class Woo {
         }
 
         String methodCode = "" + category0 + "" + category1;
-        System.out.println(Solver.solve("00"));
+        System.out.println(Solver.solve(methodCode));
 
         
     }
