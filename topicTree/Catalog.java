@@ -1,9 +1,5 @@
 public class Catalog {   
-    private String[] listTopics =
-    {"A",
-     "B",
-     "C",
-     "D"};  
+
     private TopicTree treeTopics = constructTree();
 
     public Catalog() {
@@ -37,12 +33,9 @@ public class Catalog {
             
 	return _000;
     }
-
-    public String[] getList() {
-	return listTopics;
-    }
     
     public TopicTree getTree() {
 	return treeTopics;
     }
+    
 }
