@@ -14,6 +14,8 @@ There are three main aspects of this project that make it work:
 
 ### Launch Instructions
 ```
-./Woo/Woo.pde 
-Click Run
+From a terminal:
+$ cd /Woo/
+$ processing Woo.pde
+Click Run within Processing
 ```
