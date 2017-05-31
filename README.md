@@ -13,9 +13,15 @@ There are three main aspects of this project that make it work:
 3) Output of data and visualization.
 
 ### Launch Instructions
+Clone the repository:
 ```
-From a terminal:
-$ cd /Woo/
-$ processing Woo.pde
-Click Run within Processing
+$ git clone git@github.com:daweihuangstuy/Principia.git
+```
+Compile Woo.java:
+```
+$ javac Woo.java
+```
+Run Woo.java
+```
+$ java Woo
 ```
