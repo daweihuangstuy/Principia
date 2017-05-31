@@ -10,11 +10,11 @@ void draw() {
   if (state == 0) {
     textAlign(CENTER);
     textSize(40);
-    text("Principia Physics Visualizer and Solver\nMain Menu", 0 , 0, 800, 800);
+    text("Principia Physics Visualizer and Solver", 0 , 50, 800, 800);
     textSize(20);
-    text("By: Chester Huang and Dawei Huang Period 5", 0 , 100, 800, 800);
+    text("By Chester Huang and Dawei Huang", 0 , 120, 800, 800);
     fill(255,0,0,63);
-    rect(0,150,200,40);
+    rect(20,170,210,40);
   }
   if (mousePressed) {
       mainMenu();
