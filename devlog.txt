@@ -67,3 +67,9 @@ Chester :: Implemented equations
 2017-05-29
 --------------------------------------------------------------
 Chester :: Added to TopicTree; cleaned up code
+
+
+2017-05-30
+--------------------------------------------------------------
+Chester :: Worked on equations for motion
+  Dawei :: Continued on interface
