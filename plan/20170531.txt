@@ -1,0 +1,52 @@
+Prioritization:
+    Have a working product with basic interface and simplest possible user interaction.
+    Start with groundwork: defining Vectors, Units, Scalars.
+    Define operations for these classes: vector manipulations, unit representations.
+    Create a basic interface.
+    Decide on what topics to cover.
+    Work on implementing methods for solving problems.
+    Create a catalog, tree and list versions, for all topics.
+    Develop Processing interface.
+    Improve on user experience.
+    Implement animations.
+    Implement other unit systems.
+                        
+Core Functionality:
+    Processing user interface with navigation, input, and output for solving physics problems.
+    Tree management of topics.
+    Searchable catalog of topics.
+    External visualizations and animations.
+        
+Non-essential:
+    Animations.
+    Non-SI units.
+    More complex physics topics.
+
+Prerequisites:
+    Create necessary classes for vectors, units, constants, enums first.
+    Simple interface: basic topic tree and short list of possible topics.
+    Low complexity concepts before high complexity: motion > forces > energy > etc.
+    Start with only SI system and move on to other units.
+    
+Delegated Tasks:
+    Chester :: class Vector, Scalar, Unit, TopicTree
+    Dawei :: user interface, driver files, Motion, Woo
+
+Collaborative Work:
+    Implement methods for solving problems.
+    Work on animations.
+    Expand on more difficult topics.
+
+Timeline:
+    2017-05-21    Lay out groundwork for Vectors, Scalars, Units
+    2017-05-22    Basic interface and ability to solve simple problems.
+    2017-05-23    Implement constructors that work with various types of input.
+    2017-05-24    Expand on topics covered: motion, forces, energy.
+    2017-05-25    Add more topics.
+    2017-05-29    Expand tree.
+    2017-05-30    Working version in Processing.
+    .
+    2017-06---    Add animations, more units, clean-up.
+    .
+    2017-06-06 Project Due
+    
