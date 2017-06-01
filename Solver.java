@@ -132,6 +132,24 @@ public final class Solver {
 	}	       
     }
 	
+    public Static String m20() {
+        System.out.println("\033c");
+        String message = "Solving for work done...\n\n0 By some force\n1 By a spring";
+	int category = selectCategory(message, 1);
+	    
+	if (category == 0) {
+	    Double F = getInput("force applied in N = ");
+	    Double d = getInput("displacement in m = "0);
+	    Double theta = getInput("angle between force and displacement in degrees = ");
+	    return "work done = " + (F*d*Math.cos(theta*Math.PI/180)) + " J";
+	}
+	else {
+	    Double x = getInput("displacement in m = ");
+	    Double k = getInput("spring constant in N/m = ");
+            return "\nwork done = " + (-1.0/2*k*x*x) + " J";		
+	}
+    }
+	
     public static int selectCategory(String message, int maxChoice) {
 	System.out.println(message);
 	int category = Keyboard.readInt();
