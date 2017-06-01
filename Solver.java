@@ -71,6 +71,67 @@ public final class Solver {
 	}
     } 
     
+    public static String m10() {
+	System.out.println("\033c");
+	String message = "Solving for Weight...\n\n0 On Earth\n1 Given acceleration of gravity";
+	int category = selectCategory(message, 1);
+	
+	if (category == 0) {
+	    Double m = getInput("mass in kg = ");
+            return "\nweight = " + (m*9.81) + " N";		
+	}
+	else {
+	    Double m = getInput("mass in kg = ");
+            Double ag = getInput("acceleration of gravity in m/s^2 = ");
+            return "\nacceleration = " + (m*ag) + " N";
+	}	        
+    }
+	
+    public Static String m11() {
+        System.out.println("\033c");
+	String message = "Solving for the force of a spring...\n\n0 Given displacement and spring constant";
+	int category = selectCategory(message, 0);
+	
+	Double x = getInput("displacement in m = ");
+	Double k = getInput("spring constant in N/m = ");
+        return "\nforce = " + (-1*k*x) + " N";
+    }
+	
+    public Static String m12() {
+        System.out.println("\033c");
+	String message = "Solving for the force of friction...\n\n0 Static Friction\n1 Kinetic Friction";
+	int category = selectCategory(message, 1);
+	    
+	if (category == 0) {
+	    Double fN = "normal force in N = ");
+	    Double MUs = "coefficient of static friction = ";
+            return "\nstatic friction = " + (MUs*fN) + " N";	
+	}
+	else {
+	    Double fN = "normal force in N = ");
+	    Double MUk = "coefficient of kinetic friction = ";
+            return "\nkinetic friction = " + (MUk*fN) + " N";	
+	}
+    }
+	
+    public Static String m13() {
+        System.out.println("\033c");
+        String message = "Solving for centripetal force...\n\n0 As a function of mass and centripetal acceleration\n1 As a function of mass, velocity, and radius";
+	int category = selectCategory(message, 1);
+	    
+	if (category == 0) {
+	    Double m = getInput("mass in kg = ");
+	    Double acp = getInput("centripetal acceleration in m/s^2 = ");
+	    return "\ncentripetal force = " + (m*acp) + " N";
+	}
+	else {
+	    Double m = getInput("mass in kg = ");
+	    Double v = getInput("velocity in m/s = ");
+            Double r = getInput("radius in m = ");
+            return "\ncentripetal force = " + (m*v/r/r) + " N";
+	}	       
+    }
+	
     public static int selectCategory(String message, int maxChoice) {
 	System.out.println(message);
 	int category = Keyboard.readInt();
