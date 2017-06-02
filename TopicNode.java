@@ -2,7 +2,6 @@ import java.util.*;
 
 public class TopicNode {
     private String data;
-    private TopicNode parent;
     private ArrayList<TopicNode> children;
 
     public TopicNode() {
@@ -17,25 +16,19 @@ public class TopicNode {
         return data;
     }
 
+    // accessors
     public String getData() {
         return data;
-    }
-    public TopicNode getParent() {
-        return parent;
     }
     public ArrayList<TopicNode> getChildren() {
         return children;
     }
 
+    // mutators
     public String setData(String newData) {
         String oldData = data;
         data = newData;
         return oldData;
-    }
-    public TopicNode setParent(TopicNode newParent) {
-        TopicNode oldParent = parent;
-        parent = newParent;
-        return oldParent;
     }
     public ArrayList<TopicNode> setChildren(ArrayList<TopicNode> newChildren) {
         ArrayList<TopicNode> oldChildren = children;
@@ -43,10 +36,12 @@ public class TopicNode {
         return oldChildren;
     }
 
+    // add one child to list of children
     public void addChild(TopicNode child) {
         children.add(child);
     }
 
+    // list format of children
     public String listChildren() {
         String retStr = "";
         for (TopicNode tn : getChildren()) {
