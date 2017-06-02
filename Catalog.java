@@ -29,7 +29,7 @@ public class Catalog {
         TopicTree _010 = new TopicTree("0 Weight");
         TopicTree _011 = new TopicTree("1 Spring");
         TopicTree _012 = new TopicTree("2 Friction");
-	TopicTree _013 = new TopicTree("4 Centripetal");
+	TopicTree _013 = new TopicTree("3 Centripetal");
         _01.addChildren(_010, _011, _012, _013);
 	   
         TopicTree _020 = new TopicTree("0 Work");
@@ -38,7 +38,7 @@ public class Catalog {
 	TopicTree _023 = new TopicTree("4 Power");
         _02.addChildren(_020, _021, _022, _023);
             
-	return _000;
+	return _0;
     }
     
     public TopicTree getTree() {
