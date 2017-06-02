@@ -35,8 +35,9 @@ public class Catalog {
         TopicTree _020 = new TopicTree("0 Work");
         TopicTree _021 = new TopicTree("1 Kinetic Energy");
         TopicTree _022 = new TopicTree("2 Potential Energy");
-	TopicTree _023 = new TopicTree("3 Power");
-        _02.addChildren(_020, _021, _022, _023);
+	TopicTree _023 = new TopicTree("3 Torque");
+	TopicTree _024 = new TopicTree("4 Power");
+        _02.addChildren(_020, _021, _022, _023, _024);
         
 	TopicTree _030 = new TopicTree("0 Linear Momentum");
 	TopicTree _031 = new TopicTree("1 Angular Momentum");
@@ -61,14 +62,14 @@ public class Catalog {
 	TopicTree _063 = new TopicTree("3");
 	_06.addChildren(_060, _061, _062, _063);
 
-	TopicTree _070 = new TopicTree("0");
-	TopicTree _071 = new TopicTree("1");
-	TopicTree _072 = new TopicTree("2");
-	TopicTree _073 = new TopicTree("3");
+	TopicTree _070 = new TopicTree("0 Electrostatics");
+	TopicTree _071 = new TopicTree("1 Magnetostatics");
+	TopicTree _072 = new TopicTree("2 Electrodynamics");
+	TopicTree _073 = new TopicTree("3 Currents");
 	_07.addChildren(_070, _071, _072, _073);
 
-	TopicTree _080 = new TopicTree("0");
-	TopicTree _081 = new TopicTree("1");
+	TopicTree _080 = new TopicTree("0 Electromagnetic Spectrum");
+	TopicTree _081 = new TopicTree("1 Spherical Mirrors");
 	TopicTree _082 = new TopicTree("2");
 	TopicTree _083 = new TopicTree("3");
 	_08.addChildren(_080, _081, _082, _083);
