@@ -73,3 +73,9 @@ Chester :: Added to TopicTree; cleaned up code
 --------------------------------------------------------------
 Chester :: Worked on equations for motion
   Dawei :: Continued on interface
+
+
+2017-05-31
+--------------------------------------------------------------
+Chester :: Added to Solver and Catalog
+  Dawei :: Improved interface graphics
