@@ -52,6 +52,6 @@ public class TopicNode {
         for (TopicNode tn : getChildren()) {
             retStr += tn.getData() + "\n";
         }
-        return retStr;
+        return retStr.substring(0, retStr.length() - 1);
     }
 }

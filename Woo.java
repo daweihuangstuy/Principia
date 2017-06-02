@@ -19,13 +19,13 @@ public class Woo {
 
         Catalog treeTopics = new Catalog();
         TopicNode current = treeTopics.getTree().getRoot();
-	System.out.println(current.listChildren());
+	System.out.println(current.listChildren() + "\n");
 
         int category0 = cs1.Keyboard.readInt();
         while (!(category0 >= 0 && category0 < current.getChildren().size())) {
             System.out.println("\033c");
             System.out.println("Input error, please try again");
-            System.out.println(current.listChildren());
+            System.out.println(current.listChildren() + "\n");
             category0 = cs1.Keyboard.readInt();
         }
 
@@ -34,8 +34,15 @@ public class Woo {
         System.out.println("\033c");
         System.out.println("What would you like to solve for?");
         System.out.println(current.listChildren());
+	System.out.println("9 Go Back\n");
 
         int category1 = cs1.Keyboard.readInt();
+
+	if (category1 == 9) {
+
+	}
+
+
         while (!(category1 >= 0 && category1 < current.getChildren().size())) {
             System.out.println("\033c");
             System.out.println("Input error, please try again");

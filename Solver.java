@@ -26,13 +26,13 @@ public final class Solver {
         if (category == 0) {
             Double v = getInput("velocity in m/s = ");
             Double t = getInput("time in s = ");
-            return "\ndisplacement = " + v*t + " m";
+            return "\ndisplacement = " + String.format("%.4f", v*t) + " m";
         }
         else {
             Double v = getInput("velocity in m/s = ");
             Double t = getInput("time in s = ");
             Double a = getInput("acceleration in m/s^2 = ");
-            return "\ndisplacement = " + (v*t + 1.0/2*a*t*t) + " m";
+            return "\ndisplacement = " + String.format("%.4f", v*t + 1.0/2*a*t*t) + " m";
         }
     }
 
@@ -44,13 +44,13 @@ public final class Solver {
         if (category == 0) {
             Double d = getInput("displacement in m = ");
             Double t = getInput("time in s = ");
-            return "\nvelocity = " + (d/t) + " m/s";
+            return "\nvelocity = " + String.format("%.4f", d/t) + " m/s";
         }
         else {
             Double vi = getInput("initial velocity in m/s = ");
             Double d = getInput("displacement in m = ");
             Double a = getInput("acceleration in m/s^2 = ");
-            return "\nfinal velocity = " + Math.sqrt(vi*vi+2*a*d) + " m/s";
+            return "\nfinal velocity = " + String.format("%.4f", Math.sqrt(vi*vi+2*a*d)) + " m/s";
         }
     }
 
@@ -62,13 +62,13 @@ public final class Solver {
         if (category == 0) {
             Double v = getInput("velocity in m/s = ");
             Double t = getInput("time in s = ");
-            return "\nacceleration = " + (v/t) + " m/s^2";
+            return "\nacceleration = " + String.format("%.4f", v/t) + " m/s^2";
         }
         else {
             Double vi = getInput("initial velocity in m/s = ");
             Double vf = getInput("final velocity in m/s = ");
             Double d = getInput("displacement in m = ");
-            return "\nacceleration = " + (vf*vf-vi*vi)/(2*d) + " m/s^2";
+            return "\nacceleration = " + String.format("%.4f", vf*vf-vi*vi/(2*d)) + " m/s^2";
         }
     }
     
@@ -95,7 +95,7 @@ public final class Solver {
         
         Double x = getInput("displacement in m = ");
         Double k = getInput("spring constant in N/m = ");
-        return "\nforce = " + (-1*k*x) + " N";
+        return "\nforce = " + String.format("%.4f", -1*k*x) + " N";
     }
     
     public static String m12() {
@@ -106,12 +106,12 @@ public final class Solver {
         if (category == 0) {
             Double fN = getInput("normal force in N = ");
             Double MUs = getInput("coefficient of static friction = ");
-            return "\nstatic friction = " + (MUs*fN) + " N";    
+            return "\nstatic friction = " + String.format("%.4f", MUs*fN) + " N";    
         }
         else {
             Double fN = getInput("normal force in N = ");
             Double MUk = getInput("coefficient of kinetic friction = ");
-            return "\nkinetic friction = " + (MUk*fN) + " N";   
+            return "\nkinetic friction = " + String.format("%.4f", MUk*fN) + " N";   
         }
     }
         
@@ -123,13 +123,13 @@ public final class Solver {
         if (category == 0) {
             Double m = getInput("mass in kg = ");
             Double acp = getInput("centripetal acceleration in m/s^2 = ");
-            return "\ncentripetal force = " + (m*acp) + " N";
+            return "\ncentripetal force = " + String.format("%.4f", m*acp) + " N";
         }
         else {
             Double m = getInput("mass in kg = ");
             Double v = getInput("velocity in m/s = ");
             Double r = getInput("radius in m = ");
-            return "\ncentripetal force = " + (m*v*v/r) + " N";
+            return "\ncentripetal force = " + String.format("%.4f", m*v*v/r) + " N";
         }              
     }
         
@@ -142,14 +142,84 @@ public final class Solver {
             Double F = getInput("force applied in N = ");
             Double d = getInput("displacement in m = ");
             Double theta = getInput("angle between force and displacement in degrees = ");
-            return "work done = " + (F*d*Math.cos(theta*Math.PI/180)) + " J";
+            return "work done = " + String.format("%.4f", F*d*Math.cos(theta*Math.PI/180)) + " J";
         }
         else {
             Double x = getInput("displacement in m = ");
             Double k = getInput("spring constant in N/m = ");
-            return "\nwork done = " + (-1.0/2*k*x*x) + " J";            
+            return "\nwork done = " + String.format("%.4f", -1.0/2*k*x*x) + " J";            
         }
     }
+
+    public static String m21() {
+	System.out.println("\033c");
+	String message = "Solving for kinetic energy...\n\n0 As a function of mass and velocity\n1 As a function of mass and momentum\n";
+	int category = selectCategory(message, 1);
+
+	if (category == 0) {
+	    Double m = getInput("mass in kg = ");
+	    Double v = getInput("velocity in m/s = ");
+	    return "\nkinetic energy = " + String.format("%.4f", 1.0/2*m*v*v) + " J";
+	}
+	else {
+	    Double m = getInput("mass in kg = ");
+	    Double p = getInput("momentum in kg*m/s = ");
+	    return "\nkinetic energy = " + String.format("%.4f",p*p/2/m) + " J";
+	}
+    }
+
+    public static String m22() {
+	System.out.println("\033c");
+	String message = "Solving for potential energy...\n\n0 By gravity on earth\n";
+	int category = selectCategory(message, 0);
+
+	Double m = getInput("mass in kg = ");
+	Double h = getInput("height in m = ");
+	return "potential energy = " + String.format("%.4f", m*9.81*h) + " J";
+    }
+
+    public static String m23() {
+	System.out.println("\033c");
+	String message = "Solving for power...\n\n0 As a function of work and time\n1 As a function of force and velocity\n";
+	int category = selectCategory(message, 1);
+
+	if (category == 0) {
+	    Double W = getInput("work in J = ");
+	    Double t = getInput("time in s = ");
+	    return "power = " + String.format("%.4f", W/t) + " W";
+	}
+	else {
+	    Double F = getInput("force in N = ");
+	    Double v = getInput("velocity in m/s = ");
+	    return "power = " + String.format("%.4f", F*v) + " W";
+	}
+    }
+
+    public static String m30() {	
+	System.out.println("\033c");
+	String message = "Solving for linear momentum...\n\n0 Given mass and velocity\n";
+	int category = selectCategory(message, 0);
+
+	Double m = getInput("mass in kg = ");
+	Double v = getInput("velocity in m/s = ");
+	return "momentum = " + String.format("%.4f", m*v) + " kg*m/s";
+    }
+
+    /*
+    public static String m() {
+	System.out.println("\033c");
+	String message = "";
+	int category = selectCategory(message, 0);
+
+	if (category == 0) {
+
+	}
+	else {
+
+	}
+    }
+    */
+
     
     public static int selectCategory(String message, int maxChoice) {
         System.out.println(message);
