@@ -179,6 +179,18 @@ public final class Solver {
     }
 
     public static String m23() {
+        System.out.println("\033c");
+	String message = "Solving for torque...\n\n0 Given force at an angle and radius\n";
+	int category = selectCategory(message, 0);
+	    
+	Double F = getInput("force in N = ");
+	Double theta = getInput("angle in degrees = ");
+	Double r = getInput("radius in m = ");    
+	    
+	return "torque = " + String.format("%.4f", F*r*Math.sin(theta*Math.PI/180)) + " N*m";
+    }
+	
+    public static String m24() {
 	System.out.println("\033c");
 	String message = "Solving for power...\n\n0 As a function of work and time\n1 As a function of force and velocity\n";
 	int category = selectCategory(message, 1);
@@ -203,6 +215,34 @@ public final class Solver {
 	Double m = getInput("mass in kg = ");
 	Double v = getInput("velocity in m/s = ");
 	return "momentum = " + String.format("%.4f", m*v) + " kg*m/s";
+    }
+	
+    public static String m31() {
+	System.out.println("\033c");
+	String message = "Solving for angular momentum...\n\n0 Given mass, velocity, and radius of rotation\n";
+	int category = selectCategory(message, 0);
+
+	Double m = getInput("mass in kg = ");
+	Double v = getInput("velocity in m/s = ");
+	Double r = getInput("radius in m = ");
+	return "momentum = " + String.format("%.4f", m*v*r) + " J*s";
+    }
+	
+    public static String m32() {
+        System.out.println("\033c");
+        String message = "Solving for final velocity...\n\n0 In an elastic collision\n1 In an inelastic collision\n";
+	int category = selectCategory(message, 1);
+	
+	if (category == 0) {
+	    Double ma = getInput("mass of first object in kg = ");
+            Double mb = getInput("mass of second object in kg = ");
+	    Double via = getInput("initial velocity of first object in m/s = ");
+            Double vib = getInput("initial velocity of second object in m/s = ");
+	    return "final velocity = " + String.format("%.4f", (ma*via + mb*vib)/(ma+mb) + " m/s";
+	}
+	else {
+		
+	} 
     }
 
     /*
