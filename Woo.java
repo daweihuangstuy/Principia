@@ -2,7 +2,7 @@ import cs1.Keyboard;
 
 public class Woo {
 
-    public static final 
+    public static final Catalog treeTopics = new Catalog();
 
     public static void main(String[] args){
 
@@ -14,17 +14,29 @@ public class Woo {
 	    System.out.println("Please retype 'start' to continue\n");
             startCMD = cs1.Keyboard.readString();
 	}
+	
+	while (true) { 
+		    
+	    int category0 = -1;
+	    int category1 = -1;
+	    
+	    while (category1 != 9) {
+	        category0 = getTopic(treeTopics.getTree().getRoot());
+                category1 = getSubTopic(treeTopics.getTree().getRoot().getChildren().get(category0));
+     	    }
 
-        Catalog treeTopics = new Catalog();
-        TopicNode current = treeTopics.getTree().getRoot();
-
-	int category0 = getTopic(current);
-	current = current.getChildren().get(category0);     
-        int category1 = getSubTopic(current);
-
-        String methodCode = "" + category0 + "" + category1;
-        System.out.println(Solver.solve(methodCode));
-
+            String methodCode = "" + category0 + "" + category1;
+            System.out.println(Solver.solve(methodCode));
+	    System.out.println("0 Back to Topics\n1 End\n");
+	    int toContinue = cs1.Keyboard.readInt();
+	    while (toContinue != 0 || toContinue != 1) {
+	        System.out.println("Input error, please try again");
+                toContinue = cs1.Keyboard.readInt();
+	    }
+	    if (toContinue == 1) {
+	        return;	
+	    }
+	}
     }
 
     public static int getTopic(TopicNode parent) {
@@ -53,9 +65,6 @@ public class Woo {
             System.out.println(parent.listChildren());
             retInt = cs1.Keyboard.readInt();
         }
-	if (retInt == 9) {
-	    getTopic(
-	}
 	return retInt;
     }
 
