@@ -248,6 +248,24 @@ public final class Solver {
 	} 
     }
 
+    public static String m40() {
+	System.out.println("\033c");
+        String message = "Solving for velocity of a wave...\n\n0 Given frequency and wavelength\n1 Given tension and mass per length\n";
+	int category = selectCategory(message, 1);
+	
+	if (category == 0) {
+	    Double lamba = getInput("wavelength in m = ");
+            Double f = getInput("frequency in Hz = ");
+	    return "velocity = " + String.format("%.4f", (lambda*f)) + " m/s";
+	}
+	else {
+	    Double F = getInput("tension force in N = ");
+	    Double mu = getInput("mass per length in kg/m ");
+	    return "velocity = " + String.format("%.4f", (Math.sqrt(F/mu))) + " m/s";
+	}
+    }
+	
+	
     /*
     public static String m() {
 	System.out.println("\033c");
