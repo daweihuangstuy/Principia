@@ -230,18 +230,21 @@ public final class Solver {
 	
     public static String m32() {
         System.out.println("\033c");
-        String message = "Solving for final velocity...\n\n0 In an elastic collision\n1 In an inelastic collision\n";
+        String message = "Solving for final velocity...\n\n0 In an elastic collision\n1 In a perfectly inelastic collision\n";
 	int category = selectCategory(message, 1);
 	
 	if (category == 0) {
 	    Double ma = getInput("mass of first object in kg = ");
+	    Double mb = getInput("mass of second object in kg = ");
+	    Double via = getInput("mass of initial velocity of first object in m/s = ");
+	    return "final velocity of second object = " + String.format("%.4f", 2*via*ma/(ma+mb)) + " m/s";
+	}
+	else {
+	    Double ma = getInput("mass of first object in kg = ");
             Double mb = getInput("mass of second object in kg = ");
 	    Double via = getInput("initial velocity of first object in m/s = ");
             Double vib = getInput("initial velocity of second object in m/s = ");
-	    return "final velocity = " + String.format("%.4f", (ma*via + mb*vib)/(ma+mb) + " m/s";
-	}
-	else {
-		
+	    return "final velocity = " + String.format("%.4f", (ma*via + mb*vib)/(ma+mb)) + " m/s";    
 	} 
     }
 
