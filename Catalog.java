@@ -12,7 +12,7 @@ public class Catalog {
         TopicTree _01 = new TopicTree("1 Forces");
         TopicTree _02 = new TopicTree("2 Energy and Power");
         TopicTree _03 = new TopicTree("3 Momentum");
-        TopicTree _04 = new TopicTree("4 Waves");
+        TopicTree _04 = new TopicTree("4 Sound Waves");
         TopicTree _05 = new TopicTree("5 Fluids");
         TopicTree _06 = new TopicTree("6 Thermodynamics");
         TopicTree _07 = new TopicTree("7 Electromagnetism");
@@ -44,22 +44,21 @@ public class Catalog {
 	TopicTree _032 = new TopicTree("2 Collisions");
 	_03.addChildren(_030, _031, _032);
 
-	TopicTree _040 = new TopicTree("0");
-	TopicTree _041 = new TopicTree("1");
-	TopicTree _042 = new TopicTree("2");
-	TopicTree _043 = new TopicTree("3");
+	TopicTree _040 = new TopicTree("0 Velocity");
+	TopicTree _041 = new TopicTree("1 Sound Intensity");
+	TopicTree _042 = new TopicTree("2 Doppler Effect");
+	TopicTree _043 = new TopicTree("3 Beat Frequency");
 	_04.addChildren(_040, _041, _042, _043);
 
-	TopicTree _050 = new TopicTree("0");
-	TopicTree _051 = new TopicTree("1");
-	TopicTree _052 = new TopicTree("2");
-	TopicTree _053 = new TopicTree("3");
+	TopicTree _050 = new TopicTree("0 Density");
+	TopicTree _051 = new TopicTree("1 Pressure");
+	TopicTree _052 = new TopicTree("2 Fluid Exit Speed");
+	TopicTree _053 = new TopicTree("3 Viscosity");
 	_05.addChildren(_050, _051, _052, _053);
 
-	TopicTree _060 = new TopicTree("0");
-	TopicTree _061 = new TopicTree("1");
-	TopicTree _062 = new TopicTree("2");
-	TopicTree _063 = new TopicTree("3");
+	TopicTree _060 = new TopicTree("0 Thermal Expansion");
+	TopicTree _061 = new TopicTree("1 Specific Heat");
+	TopicTree _062 = new TopicTree("2 Conduction");
 	_06.addChildren(_060, _061, _062, _063);
 
 	TopicTree _070 = new TopicTree("0 Electrostatics");
@@ -69,15 +68,16 @@ public class Catalog {
 	_07.addChildren(_070, _071, _072, _073);
 
 	TopicTree _080 = new TopicTree("0 Electromagnetic Spectrum");
-	TopicTree _081 = new TopicTree("1 Spherical Mirrors");
-	TopicTree _082 = new TopicTree("2");
-	TopicTree _083 = new TopicTree("3");
-	_08.addChildren(_080, _081, _082, _083);
+	TopicTree _081 = new TopicTree("1 Refraction");
+	TopicTree _082 = new TopicTree("2 Magnefication");
+	TopicTree _083 = new TopicTree("3 Diffraction");
+	TopicTree _084 = new TopicTree("4 Spherical Mirrors");
+	_08.addChildren(_080, _081, _082, _083, _084);
 
-	TopicTree _090 = new TopicTree("0");
-	TopicTree _091 = new TopicTree("1");
-	TopicTree _092 = new TopicTree("2");
-	TopicTree _093 = new TopicTree("3");
+	TopicTree _090 = new TopicTree("0 Relativity");
+	TopicTree _091 = new TopicTree("1 Photons");
+	TopicTree _092 = new TopicTree("2 Line Spectra");
+	TopicTree _093 = new TopicTree("3 Radioactivity");
 	_09.addChildren(_090, _091, _092, _093);
 
 	return _0;
