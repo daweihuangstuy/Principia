@@ -1,15 +1,19 @@
 String mode = "starts";
 
+/*
 void imageSetup(){
   PImage img;
   img = loadImage("bg.jpg");
   imageMode(CENTER);
   image(img, 400, 750, width/10, height/16);
 }
+*/
 
 void setup(){
   size(800, 800);
-  background(0);
+  PImage img = loadImage("bg.jpg");
+  background(img);
+  fill(0);
   textSize(40);
   textAlign(CENTER);
   textSize(40);
@@ -20,7 +24,23 @@ void setup(){
   frameRate(100);   //it moves 60 frames per second. Pretty fast
   textAlign(LEFT);
   exit1();
-  imageSetup();
+  //imageSetup();
+}
+
+void setup2() {
+  size(800, 800);
+  background(241,239,240);
+  fill(0);
+  textSize(40);
+  textAlign(CENTER);
+  textSize(40);
+  text("Principia Physics Visualizer and Solver", 0 , 50, 800, 800);
+  textSize(20);
+  text("By Chester Huang and Dawei Huang", 0 , 120, 800, 800);
+  shapeMode(CENTER);   
+  frameRate(100);   //it moves 60 frames per second. Pretty fast
+  textAlign(LEFT);
+  exit1();
 }
 
 
@@ -35,7 +55,7 @@ void draw(){
       starts();
     }
     if (mode.equals("setup")){
-      setup();
+      setup2();
       menu();
     }
     if (mode.equals("menu")){
@@ -45,10 +65,10 @@ void draw(){
 }
 
 void starts(){
-  fill(255);
+  fill(0);
   textAlign(CENTER);
-  textSize(90);
-  text("CLICK ANYWHERE TO START", 0 , 300, 800, 800);
+  textSize(28);
+  text("CLICK ANYWHERE TO START", 0 , 600, 800, 800);
 }
 
 void ballBounce(){
@@ -199,7 +219,7 @@ void mode(){
 
 // topics ///////////////////////////////////////////////////////////////////////////
 void topic1(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -211,7 +231,7 @@ void topic1(){
 }
 
 void topic2(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -223,7 +243,7 @@ void topic2(){
 }
 
 void topic3(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -235,7 +255,7 @@ void topic3(){
 }
 
 void topic4(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -247,7 +267,7 @@ void topic4(){
 }
 
 void topic5(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -259,7 +279,7 @@ void topic5(){
 }
 
 void topic6(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -271,7 +291,7 @@ void topic6(){
 }
 
 void topic7(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -283,7 +303,7 @@ void topic7(){
 }
 
 void topic8(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -295,7 +315,7 @@ void topic8(){
 }
 
 void topic9(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -307,7 +327,7 @@ void topic9(){
 }
 
 void topic10(){
-  setup();
+  setup2();
   fill(255);
   textAlign(CENTER);
   textSize(30);
@@ -321,22 +341,22 @@ void topic10(){
 // topics ///////////////////////////////////////////////////////////////////////////
 
 void return1(){
-  fill(245,7,7);
+  fill(0);
   rect(25, 725, 200, 50, 10);
   fill(255);
   textAlign(LEFT);
   textSize(30);
-  text("RETURN", 65 , 733, 800, 800);
+  text("RETURN", 55 , 733, 800, 800);
   fill(255);
   
 }
 
 void exit1(){
-  fill(245,7,7);
+  fill(0);
   rect(575, 725, 200, 50, 10);
   fill(255);
   textAlign(LEFT);
   textSize(30);
-  text("EXIT", 615 , 733, 800, 800);
+  text("EXIT", 680 , 733, 800, 800);
   fill(255);
 }
