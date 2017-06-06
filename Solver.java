@@ -115,6 +115,7 @@ public class Solver {
         Double x = getInput("displacement in m = ");
         Double k = getInput("spring constant in N/m = ");
         System.out.println("\nforce = " + String.format("%.4f", -1*k*x) + " N");
+	addData("Spring Force", x, k);
     }
 
     // Forces, Friction
@@ -127,7 +128,8 @@ public class Solver {
         if (category == 0) {
             Double fN = getInput("normal force in N = ");
             Double MUs = getInput("coefficient of static friction = ");
-            System.out.println("\nstatic friction = " + String.format("%.4f", MUs*fN) + " N");    
+            System.out.println("\nstatic friction = " + String.format("%.4f", MUs*fN) + " N");
+	    addData("Static Friction", fN, MUs);
         }
         // F = ukFn
         else {
@@ -155,6 +157,7 @@ public class Solver {
             Double v = getInput("velocity in m/s = ");
             Double r = getInput("radius in m = ");
             System.out.println("\ncentripetal force = " + String.format("%.4f", m*v*v/r) + " N");
+	    addData("Centripetal Force", m, v, r);
         }              
     }
 
