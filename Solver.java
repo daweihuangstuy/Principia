@@ -285,6 +285,7 @@ public class Solver {
             Double mb = getInput("mass of second object in kg = ");
             Double via = getInput("mass of initial velocity of first object in m/s = ");
             System.out.println("final velocity of second object = " + String.format("%.4f", 2*via*ma/(ma+mb)) + " m/s");
+            addData("Elastic Collision", ma, mb, via);
         }
         // vf = (ma*va + mb*vb)/(ma+mb)
         else {
@@ -292,7 +293,8 @@ public class Solver {
             Double mb = getInput("mass of second object in kg = ");
             Double via = getInput("initial velocity of first object in m/s = ");
             Double vib = getInput("initial velocity of second object in m/s = ");
-            System.out.println("final velocity = " + String.format("%.4f", (ma*via + mb*vib)/(ma+mb)) + " m/s");    
+            System.out.println("final velocity = " + String.format("%.4f", (ma*via + mb*vib)/(ma+mb)) + " m/s");   
+	    addData("Inelastic Collision", ma, mb, via, vib);
         } 
     }
 
@@ -425,6 +427,7 @@ public class Solver {
         // v = (2gh)^(1/2)
         Double h = getInput("height in m = ");
         System.out.println("speed = " + String.format("%.4f", Math.sqrt(2*9.81*h)) + " m/s");
+	addData("Fluid Velocity", h);
     }
 
     // Temperature and Heat, Expansion
@@ -439,6 +442,7 @@ public class Solver {
             Double L = getInput("initial length in m = ");
             Double T = getInput("change in temperature in K = ");
             System.out.println("linear expansion = " + String.format("%.4f", a*L*T) + " m");
+	    addData("Linear Expansion", a, L, T);
         }
         // dV = BVT
         else {
@@ -446,6 +450,7 @@ public class Solver {
             Double V = getInput("initial volume in m = ");
             Double T = getInput("change in temperature in K = ");
             System.out.println("volume expansion = " + String.format("%.4f", B*V*T) + " m");
+            addData("Volume Expansion", B, V, T);
         }
     }
 
@@ -499,6 +504,7 @@ public class Solver {
             Double q2 = getInput("second point charge in C = ");
             Double r = getInput("distance between points in m = ");
             System.out.println("electrostatic force = " + String.format("%.4f", k*q1*q2/r/r) + " N");
+	    addData("Electric Force", q1, q2, r);
         }
         // E = kq/r^2
         else if (category == 1) {
@@ -534,6 +540,7 @@ public class Solver {
             Double B = getInput("magnitude of magnetic field in T");
             Double theta = getInput("angle between velocity and magnetic field in degrees = ");
             System.out.println("magnetic force = " + String.format("%.4f", Math.abs(q)*v*B*Math.sin(theta*Math.PI/180)) + " N");
+	    addData("Magnetic Force", q, v, B, theta);
         }
         // r = mv/|q|B
         else if (category == 1) {
@@ -644,7 +651,8 @@ public class Solver {
             Double theta2 = getInput("angle of refraction in first medium in degrees = ");
             Double theta1 = getInput("angle of refraction in second medium in degrees = ");
             System.out.println("index of refraction of second medium = " + String.format("%.4f", n2*Math.sin(theta2*(Math.PI/180))/Math.sin(theta1*Math.PI/180)) + "");
-        }
+       	    addData("Refraction", n2, theta2, theta1);
+	}
     }
 
     // Optics, Diffraction
@@ -718,6 +726,7 @@ public class Solver {
             Double lambda = getInput("decay constant in s^-1 = ");
             Double t = getInput("time in s = ");
             System.out.println("nuclei remaining = " + String.format("%.4f", N0*Math.pow(Math.E, (-1*lambda*t))) + "");
+	    addData("Decay", N0, lambda, t);
         }
         // R = lambda*N
         else {
@@ -726,9 +735,6 @@ public class Solver {
             System.out.println("decay constant = " + String.format("%.4f", lambda*N) + " nuclei/s");
         }
     }
-
-
-
     
     // template for declaring solve methods
     public static void m() {
@@ -745,10 +751,7 @@ public class Solver {
             System.out.println("" + String.format("%.4f", 0.0) + "");
         }
     }
-
-
-
-    
+   
     // used for selecting various equations under a topics
     public static int selectCategory(String message, int maxChoice) {
         System.out.println(message);
