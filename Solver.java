@@ -30,7 +30,7 @@ public class Solver {
 
         // d = v/t
         if (category == 0) {
-            Double v = getInput("velocity in m/s = ");
+           Double v = getInput("velocity in m/s = ");
             Double t = getInput("time in s = ");
             System.out.println("\ndisplacement = " + String.format("%.4f", v*t) + " m");
         }
@@ -537,7 +537,7 @@ public class Solver {
         if (category == 0) {
             Double q = getInput("charge of particle in C = ");
             Double v = getInput("velocity of particle in m/s = ");
-            Double B = getInput("magnitude of magnetic field in T");
+            Double B = getInput("magnitude of magnetic field in T = ");
             Double theta = getInput("angle between velocity and magnetic field in degrees = ");
             System.out.println("magnetic force = " + String.format("%.4f", Math.abs(q)*v*B*Math.sin(theta*Math.PI/180)) + " N");
 	    addData("Magnetic Force", q, v, B, theta);
@@ -553,7 +553,7 @@ public class Solver {
         // F = ILBsin(theta)
         else if (category == 2) {
             Double I = getInput("current in wire in A = ");
-            Double L = getInput("length of wire in m ");
+            Double L = getInput("length of wire in m = ");
             Double B = getInput("magnetic field in T = ");
             Double theta = getInput("angle between wire and magnetic field in degrees = ");
             System.out.println("force on wire = " + String.format("%.4f", I*L*B*Math.sin(theta*Math.PI/180)) + " N");
@@ -651,7 +651,7 @@ public class Solver {
             Double theta2 = getInput("angle of refraction in first medium in degrees = ");
             Double theta1 = getInput("angle of refraction in second medium in degrees = ");
             System.out.println("index of refraction of second medium = " + String.format("%.4f", n2*Math.sin(theta2*(Math.PI/180))/Math.sin(theta1*Math.PI/180)) + "");
-       	    addData("Refraction", n2, theta2, theta1);
+       	    addData("Refraction Index", n2, theta2, theta1);
 	}
     }
 
@@ -793,7 +793,6 @@ public class Solver {
         for (Double d : inputs) {
             newEntry += d + ",";
         }
-        newEntry += "\r\n";
 
         // add to empty slot if possible
         for (int i = 0; i < 10; i++) {
@@ -824,7 +823,7 @@ public class Solver {
 
             // arrData global variable with saved inputs
             for (String s : arrData) {
-                writer.write(s);
+                writer.write(s + "\r\n");
             }
             writer.close();
         }
