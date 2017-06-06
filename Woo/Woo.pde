@@ -21,7 +21,7 @@ void setup(){
   textSize(20);
   text("By Chester Huang and Dawei Huang", 0 , 120, 800, 800);
   shapeMode(CENTER);   
-  frameRate(100);   //it moves 60 frames per second. Pretty fast
+  frameRate(200);   //it moves 60 frames per second. Pretty fast
   textAlign(LEFT);
   exit1();
   //imageSetup();
@@ -224,6 +224,10 @@ void topic1(){
   textAlign(CENTER);
   textSize(30);
   text("TOPIC 1", 0 , 675, 800, 800);
+  if (readFile(1) == null){
+    mode = "setup";
+    return;
+  }
   
   
   return1(); //return option to main menu
