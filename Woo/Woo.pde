@@ -340,6 +340,15 @@ void topic10(){
 
 // topics ///////////////////////////////////////////////////////////////////////////
 
+String[] readFile(int order){  
+  String[] lines = loadStrings("data.txt");
+  if (order > lines.length){
+    return null;
+  }
+  String[] targetLine = lines[order].split(",");
+  return targetLine;
+}
+
 void return1(){
   fill(0);
   rect(25, 725, 200, 50, 10);
