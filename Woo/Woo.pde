@@ -251,6 +251,8 @@ void topic1() {
   textSize(30);
   text(lines[0].split(",")[0], 0, 675, 800, 800);
 
+  animate(1);
+
   return1(); //return option to main menu
   exit1(); //exit option
 }
@@ -265,6 +267,8 @@ void topic2() {
   textAlign(CENTER);
   textSize(30);
   text(lines[1].split(",")[0], 0, 675, 800, 800);
+
+  animate(2);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -281,6 +285,7 @@ void topic3() {
   textSize(30);
   text(lines[2].split(",")[0], 0, 675, 800, 800);
 
+  animate(3);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -297,6 +302,7 @@ void topic4() {
   textSize(30);
   text(lines[3].split(",")[0], 0, 675, 800, 800);
 
+  animate(4);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -313,6 +319,7 @@ void topic5() {
   textSize(30);
   text(lines[4].split(",")[0], 0, 675, 800, 800);
 
+  animate(5);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -329,6 +336,7 @@ void topic6() {
   textSize(30);
   text(lines[5].split(",")[0], 0, 675, 800, 800);
 
+  animate(6);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -345,6 +353,7 @@ void topic7() {
   textSize(30);
   text(lines[6].split(",")[0], 0, 675, 800, 800);
 
+  animate(7);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -361,6 +370,7 @@ void topic8() {
   textSize(30);
   text(lines[7].split(",")[0], 0, 675, 800, 800);
 
+  animate(8);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -377,6 +387,7 @@ void topic9() {
   textSize(30);
   text(lines[8].split(",")[0], 0, 675, 800, 800);
 
+  animate(9);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -393,6 +404,7 @@ void topic10() {
   textSize(30);
   text(lines[9].split(",")[0], 0, 675, 800, 800);
 
+  animate(10);
 
   return1(); //return option to main menu
   exit1(); //exit option
@@ -427,4 +439,33 @@ void exit1() {
   textSize(30);
   text("EXIT", 680, 733, 800, 800);
   fill(255);
+}
+
+void animate(int topicNum) {
+  String typeProblem = lines[topicNum-1].split(",")[0];
+  if (typeProblem.equals("Displacement")) {
+    //
+  } else if (typeProblem.equals("Spring Force")) {
+    //
+  } else if (typeProblem.equals("Centripetal Force")) {
+    //
+  } else if (typeProblem.equals("Elastic Collision")) {
+    //
+  } else if (typeProblem.equals("Inelastic Collision")) {
+    //
+  } else if (typeProblem.equals("Fluid Velocity")) {
+    //
+  } else if (typeProblem.equals("Linear Expansion")) {
+    //
+  } else if (typeProblem.equals("Volume Expansion")) {
+    //
+  } else if (typeProblem.equals("Electric Force")) {
+    //
+  } else if (typeProblem.equals("Magnetic Force")) {
+    //
+  } else if (typeProblem.equals("Refraction Index")) {
+    //
+  } else if (typeProblem.equals("Decay")) {
+    //
+  }
 }
