@@ -79,3 +79,8 @@ Chester :: Worked on equations for motion
 --------------------------------------------------------------
 Chester :: Added to Solver and Catalog
   Dawei :: Improved interface graphics
+  
+2017-06-05
+--------------------------------------------------------------
+Chester :: Worked on back end classes and data structures.
+  Dawei :: Finalized the interface graphics. Proceed to working on the visualizer.
