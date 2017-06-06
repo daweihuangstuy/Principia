@@ -40,6 +40,7 @@ public class Solver {
             Double t = getInput("time in s = ");
             Double a = getInput("acceleration in m/s^2 = ");
             System.out.println("\ndisplacement = " + String.format("%.4f", v*t + 1.0/2*a*t*t) + " m");
+	    addData("Displacement", v, t, a);
         }
     }
 
@@ -769,6 +770,19 @@ public class Solver {
     
     // add to arrData
     public static void addData(String problemCode, Double... inputs) {
+
+	System.out.println("\nWould you like to save this problem for visualization?\n\n0 Yes\n1 No\n");
+	int choice = cs1.Keyboard.readInt();
+	while (choice != 0 && choice != 1) {
+	    System.out.println("Input error, please try again.");
+	    choice = cs1.Keyboard.readInt();
+	}
+	
+	if (choice == 1) {
+	    System.out.println("\033c");
+	    return;
+	}
+
         String newEntry = problemCode + ",";
         for (Double d : inputs) {
             newEntry += d + ",";
@@ -780,6 +794,7 @@ public class Solver {
             if (arrData[i].equals("")) {
                 arrData[i] = newEntry;
                 write();
+		System.out.println("\033c\nData is saved");
                 return;
             }
         }
@@ -791,6 +806,7 @@ public class Solver {
         arrData[9] = newEntry;
         write();
         
+	System.out.println("\n\033cData is saved");
     }
     
     // writing to txt file
