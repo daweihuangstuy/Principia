@@ -15,6 +15,15 @@ Physics Interpreter and Visualizer
 ==============================================================
 
 
+
+Obstacles Overcome (and how!)
+Unresolved Issues
+Cool Stuff Learned (conceptual and/or practical)
+Mid-development Design Changes (and why!)
+Lessons Learned (...which you might apply to future projects, CS or otherwise)
+
+
+
 2017-05-17
 --------------------------------------------------------------
 Chester, Dawei :: Finalized proposal
@@ -82,5 +91,9 @@ Chester :: Added to Solver and Catalog
   
 2017-06-05
 --------------------------------------------------------------
-Chester :: Worked on back end classes and data structures.
-  Dawei :: Finalized the interface graphics. Proceed to working on the visualizer.
+Chester :: Worked on back end classes and data structures
+  Dawei :: Finalized the interface graphics. Proceed to working on the visualizer
+
+2017-06-06
+--------------------------------------------------------------
+Chester, Dawei :: Completed driver file and Solver class, finished interface and animations, updated uml and flow
