@@ -446,6 +446,7 @@ double tCurrent = 0;
 float posX = 100;
 float posY = 400;
 double dX;
+float spacing;
 
 void animate(int topicNum) {
   String[] splitLine = lines[topicNum-1].split(",");
@@ -459,13 +460,13 @@ void animate(int topicNum) {
     if (tCurrent == 0) {
       posX = 150;
       posY = 400;
-      dX = 1;
+      dX = .5;
       tCurrent += tmax/300;
     } else if (tCurrent > tmax) {
       delay(1000);
       tCurrent = 0;
     } else {
-      dX += 1/a/v;
+      dX += 2/a/v;
       posX += dX;
       tCurrent += tmax/300;
     }
@@ -477,9 +478,42 @@ void animate(int topicNum) {
     text("d = " + String.format("%.2f", v*tCurrent+0.5*a*tCurrent*tCurrent), 400, 510);
     
   } else if (typeProblem.equals("Spring Force")) {
-    //
+    Double x = Double.parseDouble(splitLine[1]);
+    Double k = Double.parseDouble(splitLine[2]);
+
+    if (tCurrent == 0) {
+      posX = 150;
+      posY = 400;
+      spacing = 4;
+      tCurrent += 1.0/60;
+    } else if (tCurrent > 4) {
+      delay(3000);
+      tCurrent = 0;
+    } else {
+      spacing += .01*x/Math.abs(x);
+      tCurrent += 1.0/60;
+    }
+
+    fill(255);
+    for (int i = 0; i<75; i++) {
+      ellipse(posX+i*spacing, posY, 10, 50);
+    }
+    
+    fill(0);
+    textSize(15);
+    if (x > 0) {
+        arrow(640, 450, 550, 450);
+        text("F = " + String.format("%.2f", -1*k*x), 600, 500);
+    }
+    else if (x <0) {
+        arrow(160, 450, 250, 450);
+        text("F = " + String.format("%.2f", -1*k*x), 200, 500);
+    }
+        
   } else if (typeProblem.equals("Centripetal Force")) {
     //
+    
+    
   } else if (typeProblem.equals("Elastic Collision")) {
     //
   } else if (typeProblem.equals("Inelastic Collision")) {
@@ -500,3 +534,14 @@ void animate(int topicNum) {
     //
   }
 }
+
+void arrow(int x1, int y1, int x2, int y2) {
+  line(x1, y1, x2, y2);
+  pushMatrix();
+  translate(x2, y2);
+  float a = atan2(x1-x2, y2-y1);
+  rotate(a);
+  line(0, 0, -10, -10);
+  line(0, 0, 10, -10);
+  popMatrix();
+} 

@@ -1,5 +1,5 @@
 Displacement,50,120,5,
-Spring Force,1,1,
+Spring Force,-1,1,
 Static Friction,1,1,
 Centripetal Force,1,1,1,
 Elastic Collision,1,1,1,
