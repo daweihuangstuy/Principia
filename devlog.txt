@@ -16,11 +16,42 @@ Physics Interpreter and Visualizer
 
 
 
-Obstacles Overcome (and how!)
+Obstacles Overcome
+The two biggest challenges for this project were implementing the various types of physics problems and creating
+the visualizations for those problems. The main issue was breadth of the field of physics and the complexity that
+certain topics can get to. As a result, we chose to implement more simple types of problems but from a variety of
+topics. This variety required some sort of sorting mechanism, which we achieved through a directory tree with 
+top-level main topics and various sub-topics underneath. As for the visualizations, we chose to only do ones that 
+were practical and relatively easy to do, while still managing to demonstrate a meaningful topic.
+
 Unresolved Issues
-Cool Stuff Learned (conceptual and/or practical)
-Mid-development Design Changes (and why!)
-Lessons Learned (...which you might apply to future projects, CS or otherwise)
+There are no major issues with the project but it can be heavily improved upon in terms of number of topics covered, 
+the number of visualizations, and the quality of the interface. One thing that our group did was separate our 
+project into a java program to be run on a terminal and a processing sketch to be run with the visual interface. 
+This can be improved upon by combining the two to create an integrated and more aestheic experience for the user.
+
+Cool Stuff Learned
+We learned quite a lot from working in Processing, mainly the great value of using a mathematical approach to 
+take advantage of the available coordinate system.
+For our tree structure, we used java reflection in order to easily take user inputs to call the appropriate 
+methods for solving a problem, avoiding heavy usage of conditional statements.
+We learned some basic read and write operations to save data and reuse it during the visualizations.
+
+Mid-development Design Changes
+At the beginning of the project, we established some basic classes for defining Vectors and Units as a basis 
+for our physics calculatations. However, this turned out to overcomplicate many problems, making it more 
+difficult to interpret user input. We changed this to a more direct approach of taking numeric inputs and directly 
+calculating the output. This was possible because the level of complexity of our topics did not require a 
+rigorous approach of solving. However, our early work can be useful if this project were to be expanded.
+
+Lessons Learned
+Unfortunately, we did not manage our time in the most effective manner. Despite making a plan, we failed to 
+really keep up with a pace that we should have had. Part of the issue was not a having a sufficiently clear 
+vision of what to do and the other part was not working in the best possible order. There were parts of this 
+project that essentially required only time and not much thought, and these should have been completed first. 
+The lesson learned here is the necessity of a very clear sense of priorities, knowing the difference bewteen
+what has to be done and what would be nice to do.
+
 
 
 
