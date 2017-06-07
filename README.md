@@ -30,11 +30,11 @@ $ cd Woo
 $ processing Woo.pde
 Click Run at the top left
 ```
-###Table of Contents
+### Table of Contents
 1) Kinematics
-	-Displacement (f(velocity,time),f(velocity,time,acceleration))
-	-Velocity (f(displacment,time),f(velocity,displacment,acceleration))
-	-Acceleration (f(velocity,time),f(velocity,displacment))
+	1. Displacement (f(velocity,time),f(velocity,time,acceleration))
+	2. Velocity (f(displacment,time),f(velocity,displacment,acceleration))
+	3. Acceleration (f(velocity,time),f(velocity,displacment))
 2) Forces
 3) Energy and Power
 4) Momentum
