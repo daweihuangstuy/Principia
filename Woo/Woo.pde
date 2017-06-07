@@ -23,7 +23,7 @@ void setup() {
   textSize(20);
   text("By Chester Huang and Dawei Huang", 0, 120, 800, 800);
   shapeMode(CENTER);   
-  frameRate(200);   //it moves 60 frames per second. Pretty fast
+  frameRate(60);   //it moves 60 frames per second. Pretty fast
   textAlign(LEFT);
   exit1();
   //imageSetup();
@@ -441,10 +441,41 @@ void exit1() {
   fill(255);
 }
 
+
+double tCurrent = 0;
+float posX = 100;
+float posY = 400;
+double dX;
+
 void animate(int topicNum) {
-  String typeProblem = lines[topicNum-1].split(",")[0];
+  String[] splitLine = lines[topicNum-1].split(",");
+  String typeProblem = splitLine[0];
+
   if (typeProblem.equals("Displacement")) {
-    //
+    double v = Double.parseDouble(splitLine[1]);
+    double tmax = Double.parseDouble(splitLine[2]);
+    double a = Double.parseDouble(splitLine[3]);
+
+    if (tCurrent == 0) {
+      posX = 150;
+      posY = 400;
+      dX = 1;
+      tCurrent += tmax/300;
+    } else if (tCurrent > tmax) {
+      delay(1000);
+      tCurrent = 0;
+    } else {
+      dX += 1/a/v;
+      posX += dX;
+      tCurrent += tmax/300;
+    }
+
+    ellipse(posX, posY, 5, 5);
+    textSize(15);
+    text("t = " + String.format("%.2f", tCurrent), 400, 450);
+    text("v = " + String.format("%.2f", v + a*tCurrent), 400, 480);
+    text("d = " + String.format("%.2f", v*tCurrent+0.5*a*tCurrent*tCurrent), 400, 510);
+    
   } else if (typeProblem.equals("Spring Force")) {
     //
   } else if (typeProblem.equals("Centripetal Force")) {
