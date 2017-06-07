@@ -281,11 +281,10 @@ public class Solver {
 
         // vf = 2va*ma/(ma+mb)
         if (category == 0) {
-            Double ma = getInput("mass of first object in kg = ");
-            Double mb = getInput("mass of second object in kg = ");
+            Double ma = getInput("mass of objects in kg = ");
             Double via = getInput("mass of initial velocity of first object in m/s = ");
-            System.out.println("final velocity of second object = " + String.format("%.4f", 2*via*ma/(ma+mb)) + " m/s");
-            addData("Elastic Collision", ma, mb, via);
+            System.out.println("final velocity of second object = " + String.format("%.4f", via) + " m/s");
+            addData("Elastic Collision", ma, via);
         }
         // vf = (ma*va + mb*vb)/(ma+mb)
         else {
@@ -294,7 +293,6 @@ public class Solver {
             Double via = getInput("initial velocity of first object in m/s = ");
             Double vib = getInput("initial velocity of second object in m/s = ");
             System.out.println("final velocity = " + String.format("%.4f", (ma*via + mb*vib)/(ma+mb)) + " m/s");   
-	    addData("Inelastic Collision", ma, mb, via, vib);
         } 
     }
 

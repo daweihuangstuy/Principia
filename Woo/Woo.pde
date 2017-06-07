@@ -505,14 +505,14 @@ void animate(int topicNum) {
     if (x > 0) {
       arrow(640, 450, 550, 450);
       text("F = " + String.format("%.2f", -1*k*x) + " N", 600, 500);
-      
+
       arrow(550, 350, 640, 350);
       text("d = " + String.format("%.2f", k) + " m", 600, 320);
     } else if (x <0) {
       arrow(160, 450, 250, 450);
       text("F = " + String.format("%.2f", -1*k*x) + " N", 200, 500);
-            
-      arrow(250, 350,160, 350);
+
+      arrow(250, 350, 160, 350);
       text("d = " + String.format("%.2f", k) + " m", 200, 320);
     }
   } else if (typeProblem.equals("Static Friction")) {
@@ -550,32 +550,112 @@ void animate(int topicNum) {
     ellipse(400, 400, 200, 200);
     fill(0);
     ellipse(posX, posY, 5, 5);
-    arrow((float)posX, (float)posY,
-    (float)(400+100*Math.sqrt(2)*cos((float)(theta+Math.PI/4))),(float)(400+100*Math.sqrt(2)*sin((float)(theta+Math.PI/4))));
-    arrow((float)posX, (float)posY, 400,400);
-    
+    arrow((float)posX, (float)posY, 
+      (float)(400+100*Math.sqrt(2)*cos((float)(theta+Math.PI/4))), (float)(400+100*Math.sqrt(2)*sin((float)(theta+Math.PI/4))));
+    arrow((float)posX, (float)posY, 400, 400);
+
     fill(0);
     textSize(15);
-    text("v = " + String.format("%.2f", v) + " m/s", (float)(400+100*Math.sqrt(2)*cos((float)(theta+Math.PI/4))),(float)(400+100*Math.sqrt(2)*sin((float)(theta+Math.PI/4))));
+    text("v = " + String.format("%.2f", v) + " m/s", (float)(400+100*Math.sqrt(2)*cos((float)(theta+Math.PI/4))), (float)(400+100*Math.sqrt(2)*sin((float)(theta+Math.PI/4))));
     text("r = " + String.format("%.2f", r) + " m", 400, 600);
     text("F = " + String.format("%.2f", m*v*v/r) + " N", 400, 400);
-    
   } else if (typeProblem.equals("Elastic Collision")) {
-    //
-  } else if (typeProblem.equals("Inelastic Collision")) {
-    //
+    Double m1 = Double.parseDouble(splitLine[1]);
+    Double m2 = Double.parseDouble(splitLine[1]);
+    Double v1 = Double.parseDouble(splitLine[2]); 
+
+    if (tCurrent == 0) {
+      posX = 50;
+      posY = 400;
+      tCurrent += 1.0/60;
+    } else if (tCurrent > 6) {
+      tCurrent = 0;
+    } else if (tCurrent > 3) {
+      tCurrent += 1.0/60;
+      fill(255);
+      rect(230, 400, 150, 80);
+      rect(150+posX, 400, 150, 80);
+      posX += 1;
+      fill(0);
+      textSize(15);  
+      text(String.format("%.2f", m1) + " kg", 305, 440);
+      text(String.format("%.2f", m2) + " kg", 225+posX, 440);
+      text("v = " + String.format("%.2f", v1*m1/m2) + " m/s", posX+225, 500);
+    } else {
+      tCurrent += 1.0/60;
+      posX += 1;
+      fill(255);
+      rect(posX, 400, 150, 80);
+      rect(380, 400, 150, 80);
+      fill(0);
+      textSize(15);  
+      text(String.format("%.2f", m1) + " kg", posX+75, 440);
+      text("v = " + String.format("%.2f", v1) + " m/s", posX+75, 500);
+      text(String.format("%.2f", m2) + " kg", 455, 440);
+    }
   } else if (typeProblem.equals("Fluid Velocity")) {
-    //
+    Double h = Double.parseDouble(splitLine[1]);
+    fill(255);
+    ellipse(400, 300, 100, 40);
+    ellipse(400, 500, 100, 40);
+    line(350, 300, 350, 500);
+    line(450, 300, 450, 500);
+    rect(445, 420, 5, 5);
+    arrow(445, 420, 500, 550);
+
+    fill(0);
+    textSize(15);  
+    text("h = " +String.format("%.2f", h) + " m", 500, 400);
+    text("v = " +String.format("%.2f", Math.sqrt(2*9.81*h)) + " m/s", 560, 520);
   } else if (typeProblem.equals("Linear Expansion")) {
     //
   } else if (typeProblem.equals("Volume Expansion")) {
     //
   } else if (typeProblem.equals("Electric Force")) {
-    //
-  } else if (typeProblem.equals("Magnetic Force")) {
-    //
+    Double q1 = Double.parseDouble(splitLine[1]);
+    Double q2 = Double.parseDouble(splitLine[2]);
+    Double r = Double.parseDouble(splitLine[3]); 
+
+    fill(0);
+    textSize(15);  
+    ellipse(250, 400, 5, 5);
+    ellipse(550, 400, 5, 5);
+    line(250, 400, 550, 400);    
+
+    fill(0);
+    text("q1 = " + String.format("%6.2e", q1) + " C", 220, 440);
+    text("q2 = " + String.format("%6.2e", q2) + " C", 580, 440);
+    text("r = " + String.format("%6.2e", r) + " m", 400, 415);
+
+    if (q1*q2 > 0) {
+      text("F = " + String.format("%6.2e", Math.abs(q1*q2*8.99E9/r/r)) + " N", 400, 360);
+      arrow(300, 352, 200, 352);
+      arrow(500, 352, 600, 352);
+    } else {
+      text("F = " + String.format("%6.2e", Math.abs(q1*q2*8.99E9/r/r)) + " N", 400, 360);
+      arrow(200, 352, 300, 352);
+      arrow(600, 352, 500, 352);
+    }
   } else if (typeProblem.equals("Refraction Index")) {
-    //
+    double n1 = Double.parseDouble(splitLine[1]);
+    double theta1 = Double.parseDouble(splitLine[2]);
+    double theta2 = Double.parseDouble(splitLine[3]); 
+
+    fill(255);
+    stroke(0);
+    rect(300, 350, 200, 100);
+    line(340, 250, 340, 450);
+    line(340+100*tan((float)(theta2*Math.PI/180)), 350, 340+100*tan((float)(theta2*Math.PI/180)), 550);
+    stroke(255, 204, 0);
+    line(340, 350, (340-100*tan((float)(theta1*Math.PI/180))), 250);
+    line(340, 350, 340+100*tan((float)(theta2*Math.PI/180)), 450);   
+    line(340+100*tan((float)(theta2*Math.PI/180)), 450, (340+100*tan((float)(theta1*Math.PI/180))), 550);
+    stroke(0);
+
+    fill(0);
+    textSize(15);  
+    text("n1 = " + n1, 340, 230);
+    text("n2 = " + String.format("%.4f", n1*Math.sin(theta2*(Math.PI/180))/Math.sin(theta1*Math.PI/180)), 440, 405);
   } else if (typeProblem.equals("Decay")) {
     //
   }
