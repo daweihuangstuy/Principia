@@ -31,16 +31,16 @@ $ processing Woo.pde
 Click Run at the top left
 ```
 ###Table of Contents
-0) Kinematics
+1) Kinematics
 	-Displacement (f(velocity,time),f(velocity,time,acceleration))
 	-Velocity (f(displacment,time),f(velocity,displacment,acceleration))
 	-Acceleration (f(velocity,time),f(velocity,displacment))
-1) Forces
-2) Energy and Power
-3) Momentum
-4) Sound Waves
-5) Fluids
-6) Temperature and Heat
-7) Electromagnetism
-8) Light and Optics
-9) Quantum and Nuclear
+2) Forces
+3) Energy and Power
+4) Momentum
+5) Sound Waves
+6) Fluids
+7) Temperature and Heat
+8) Electromagnetism
+9) Light and Optics
+10) Quantum and Nuclear
