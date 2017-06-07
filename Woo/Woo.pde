@@ -198,6 +198,7 @@ void mousePressed() {
     if (mouseX >= 25 && mouseX <= 225 && 
       mouseY >= 725 && mouseY <= 775) {
       mode = "setup";
+      tCurrent = 0;
     }
   }
   if (mouseX >= 575 && mouseX <= 775 && 
@@ -447,6 +448,7 @@ float posX = 100;
 float posY = 400;
 double dX;
 float spacing;
+float theta;
 
 void animate(int topicNum) {
   String[] splitLine = lines[topicNum-1].split(",");
@@ -473,10 +475,9 @@ void animate(int topicNum) {
 
     ellipse(posX, posY, 5, 5);
     textSize(15);
-    text("t = " + String.format("%.2f", tCurrent), 400, 450);
-    text("v = " + String.format("%.2f", v + a*tCurrent), 400, 480);
-    text("d = " + String.format("%.2f", v*tCurrent+0.5*a*tCurrent*tCurrent), 400, 510);
-    
+    text("t = " + String.format("%.2f", tCurrent) + " s", 400, 450);
+    text("v = " + String.format("%.2f", v + a*tCurrent) + " m/s", 400, 480);
+    text("d = " + String.format("%.2f", v*tCurrent+0.5*a*tCurrent*tCurrent) + " m", 400, 510);
   } else if (typeProblem.equals("Spring Force")) {
     Double x = Double.parseDouble(splitLine[1]);
     Double k = Double.parseDouble(splitLine[2]);
@@ -498,21 +499,66 @@ void animate(int topicNum) {
     for (int i = 0; i<75; i++) {
       ellipse(posX+i*spacing, posY, 10, 50);
     }
-    
+
     fill(0);
     textSize(15);
     if (x > 0) {
-        arrow(640, 450, 550, 450);
-        text("F = " + String.format("%.2f", -1*k*x), 600, 500);
+      arrow(640, 450, 550, 450);
+      text("F = " + String.format("%.2f", -1*k*x) + " N", 600, 500);
+      
+      arrow(550, 350, 640, 350);
+      text("d = " + String.format("%.2f", k) + " m", 600, 320);
+    } else if (x <0) {
+      arrow(160, 450, 250, 450);
+      text("F = " + String.format("%.2f", -1*k*x) + " N", 200, 500);
+            
+      arrow(250, 350,160, 350);
+      text("d = " + String.format("%.2f", k) + " m", 200, 320);
     }
-    else if (x <0) {
-        arrow(160, 450, 250, 450);
-        text("F = " + String.format("%.2f", -1*k*x), 200, 500);
-    }
-        
+  } else if (typeProblem.equals("Static Friction")) {
+    Double fn = Double.parseDouble(splitLine[1]);
+    Double us = Double.parseDouble(splitLine[2]);
+
+    fill(255);
+    triangle(100, 600, 100, 300, 600, 600);
+    quad(250, 390, 400, 480, 430, 430, 280, 340);
+    arrow(265, 365, 165, 305);
+    arrow(355, 385, 385, 335);
+
+    fill(0);
+    textSize(15);
+    text("Fs = " + String.format("%.2f", fn*us) + " N", 100, 280);
+    text("FN = " + String.format("%.2f", fn) + " N", 385, 315);
   } else if (typeProblem.equals("Centripetal Force")) {
-    //
+    Double m = Double.parseDouble(splitLine[1]);
+    Double v = Double.parseDouble(splitLine[2]);
+    Double r = Double.parseDouble(splitLine[2]); 
+
+    if (tCurrent == 0) {
+      posX = 400;
+      posY = 400;
+      tCurrent += 1.0/60;
+      theta = 0;
+    } else if (tCurrent > 5) {
+      tCurrent = 0;
+    } else {
+      posX = 400+ 100*cos(theta);
+      posY = 400+ 100*sin(theta);
+      theta += 2*Math.PI/300;
+    }
+    fill(255);
+    ellipse(400, 400, 200, 200);
+    fill(0);
+    ellipse(posX, posY, 5, 5);
+    arrow((float)posX, (float)posY,
+    (float)(400+100*Math.sqrt(2)*cos((float)(theta+Math.PI/4))),(float)(400+100*Math.sqrt(2)*sin((float)(theta+Math.PI/4))));
+    arrow((float)posX, (float)posY, 400,400);
     
+    fill(0);
+    textSize(15);
+    text("v = " + String.format("%.2f", v) + " m/s", (float)(400+100*Math.sqrt(2)*cos((float)(theta+Math.PI/4))),(float)(400+100*Math.sqrt(2)*sin((float)(theta+Math.PI/4))));
+    text("r = " + String.format("%.2f", r) + " m", 400, 600);
+    text("F = " + String.format("%.2f", m*v*v/r) + " N", 400, 400);
     
   } else if (typeProblem.equals("Elastic Collision")) {
     //
@@ -535,7 +581,7 @@ void animate(int topicNum) {
   }
 }
 
-void arrow(int x1, int y1, int x2, int y2) {
+void arrow(float x1, float y1, float x2, float y2) {
   line(x1, y1, x2, y2);
   pushMatrix();
   translate(x2, y2);
