@@ -608,9 +608,86 @@ void animate(int topicNum) {
     text("h = " +String.format("%.2f", h) + " m", 500, 400);
     text("v = " +String.format("%.2f", Math.sqrt(2*9.81*h)) + " m/s", 560, 520);
   } else if (typeProblem.equals("Linear Expansion")) {
-    //
+    Double a1 = Double.parseDouble(splitLine[1]);
+    Double b1 = Double.parseDouble(splitLine[2]);
+    Double c1 = Double.parseDouble(splitLine[3]);
+
+    float lengthScale = (float)((a1 + a1*b1*c1) / 600);
+    if (lengthScale < 10){
+      lengthScale = 10;
+    }
+    
+    fill(0);
+    rect(100,400, 400 , 10);
+    fill(0);
+    textSize(15);
+    text("initial length = " + String.format("%.2f", b1), 175, 425);
+    
+      
+    if (tCurrent == 0){
+      posX = 0;
+      fill(42,131,41);
+      rect(500,400, posX , 10);
+      tCurrent += 1.0/60;
+    }
+    if (tCurrent > 0){
+      fill(42,131,41);
+      rect(500, 400, posX , 10);
+      tCurrent += 1.0/60;
+      posX += .25;
+      fill(0);
+      textSize(15);
+      text("kelvin = " + String.format("%.2f", c1), posX + 500 , 370);
+      text("length = " + String.format("%.2f", b1 * posX / 400), posX + 500 , 350);
+      text("kelvin = " + String.format("%.2f", c1), 175, 445);
+      text("length = " + String.format("%.2f", b1 * posX / 400), 175, 465);
+    } 
+    if (posX == a1*b1*c1/b1 * 400){
+       tCurrent = 0;
+       delay(5000);
+    }
   } else if (typeProblem.equals("Volume Expansion")) {
     //
+    Double a1 = Double.parseDouble(splitLine[1]); //coefficient
+    Double b1 = Double.parseDouble(splitLine[2]); //int volume
+    Double c1 = Double.parseDouble(splitLine[3]); //delta temperature
+    
+    float scaleVolume = (float)((b1 + a1*b1*c1) / b1);
+    float volRatio = (posX + 100)*(posX + 100) / 10000;
+    
+    rectMode(RADIUS);
+    
+    if(tCurrent == 0){
+      posX = 0;
+      fill(52,255,243);
+      rect(400, 400, 100, 100);
+      fill(0);
+      rect(400, 400, 100, 100);
+      tCurrent += 1.0 / 60;
+    }
+    if(tCurrent > 0){
+      posX += .1;
+      fill(52,255,243);
+      rect(400, 400, 100 + posX, 100 + posX);
+      fill(0);
+      rect(400, 400, 100, 100);
+      tCurrent += 1.0 / 60;
+      textSize(15);
+      volRatio = (posX + 100)*(posX + 100) / 10000;
+      text("current volume = " + String.format("%.2f", volRatio * b1), 100, 665);
+      text("initial volume = " + String.format("%.2f", b1), 100, 645);
+    }
+    if((100 + posX) * (100 + posX) > scaleVolume * 10000){
+      fill(0);
+      rect(400, 400, 100, 100);
+      tCurrent = 0;
+      delay(5000);
+    }
+
+    
+    
+    
+    rectMode(CORNER);
   } else if (typeProblem.equals("Electric Force")) {
     Double q1 = Double.parseDouble(splitLine[1]);
     Double q2 = Double.parseDouble(splitLine[2]);
